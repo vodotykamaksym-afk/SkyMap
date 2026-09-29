@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spójrz w górę — kieszonkowy przewodnik po nocnym niebie</title>
+    <meta
+      name="description"
+      content="Spokojna strona dla początkujących, która w pięć minut uczy czytać nocne niebo — bez teleskopu."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <div class="glow glow-a" aria-hidden="true"></div>
+    <div class="glow glow-b" aria-hidden="true"></div>
+
+    <header class="nav">
+      <a class="logo" href="#top">Spójrz w górę</a>
+      <nav>
+        <a href="#start">Start</a>
+        <a href="#sky-map">Mapa nieba</a>
+        <a href="#why">Dlaczego warto</a>
+      </nav>
+      <button class="nav-cta" type="button" data-scroll="#start">Spróbuj 5 minut</button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <p class="eyebrow">Szkolny towarzysz nocnego nieba</p>
+        <h1>Wszechświat jest już za Twoim oknem.</h1>
+        <p class="lead">
+          „Spójrz w górę” to spokojna strona, która w pięć minut uczy każdego,
+          jak znaleźć prawdziwe gwiazdy, prawdziwe historie i powód, by dziś
+          wieczorem wyjść na zewnątrz. Bez teleskopu. Bez konta w aplikacji.
+          Wystarczy ciekawość.
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary" type="button" data-scroll="#start">Zacznij w 5 minut</button>
+          <button class="btn ghost" type="button" data-scroll="#why">Dlaczego warto polecić tę stronę</button>
+        </div>
+        <dl class="stats">
+          <div>
+            <dt>0</dt>
+            <dd>potrzebnych teleskopów</dd>
+          </div>
+          <div>
+            <dt>5</dt>
+            <dd>minut na początek</dd>
+          </div>
+          <div>
+            <dt>3</dt>
+            <dd>kształty, które zawsze znajdziesz</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="start" class="panel">
+        <div class="section-head">
+          <p class="eyebrow">Start w pięć minut</p>
+          <h2>Możesz zacząć dziś wieczorem, nawet w mieście.</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <span>01</span>
+            <h3>Wyjdź na dwie minuty</h3>
+            <p>Daj oczom odpocząć. Ekran telefonu kradnie nocne widzenie. Niebo robi się głośniejsze, gdy poczekasz.</p>
+          </li>
+          <li>
+            <span>02</span>
+            <h3>Znajdź najjaśniejszy „kształt”</h3>
+            <p>Nie szukaj jeszcze nazw. Szukaj wozu, litery W albo trzech gwiazd w rzędzie. Najpierw kształty.</p>
+          </li>
+          <li>
+            <span>03</span>
+            <h3>Nazwij jedną rzecz i przestań</h3>
+            <p>Jeden gwiazdozbiór wystarczy. Nie chodzi o to, żeby zapamiętać całe niebo. Chodzi o to, żeby je zauważyć.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="sky-map" class="panel sky-panel">
+        <div class="section-head">
+          <p class="eyebrow">Interaktywne niebo</p>
+          <h2>Trzy kształty, których prawie każdy może się nauczyć.</h2>
+          <p>
+            Kliknij gwiazdozbiór. Każdy z nich to prawdziwy wzór, który znajdziesz
+            bez specjalnego sprzętu — i każdy ma historię, którą możesz opowiedzieć na lekcji.
+          </p>
+        </div>
+        <div class="sky-layout">
+          <svg class="constellation-map" viewBox="0 0 640 420" role="img" aria-label="Interaktywna mapa gwiazdozbiorów">
+            <defs>
+              <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fff8e7" />
+                <stop offset="55%" stop-color="#c9d7ff" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#c9d7ff" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <g id="lines" stroke="#8aa0d8" stroke-width="1.4" fill="none" opacity="0.55"></g>
+            <g id="stars"></g>
+          </svg>
+          <article class="sky-card" id="sky-card">
+            <p class="eyebrow" id="sky-kicker">Wybierz kształt</p>
+            <h3 id="sky-title">Noc ma mapę</h3>
+            <p id="sky-copy">
+              Wybierz grupę gwiazd. Dostaniesz prosty opis, jeden mit
+              i powód, dla którego ten wzór łatwo znaleźć z Ziemi.
+            </p>
+            <div class="sky-picks" role="group" aria-label="Wybierz gwiazdozbiór">
+              <button type="button" data-group="dipper">Wielki Wóz</button>
+              <button type="button" data-group="cassiopeia">Kasjopea</button>
+              <button type="button" data-group="orion">Orion</button>
+            </div>
+            <p class="sky-tip" id="sky-tip">Wskazówka: zacznij od Wielkiego Wozu. To najprzyjaźniejszy kształt na niebie.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel facts">
+        <div class="section-head">
+          <p class="eyebrow">Fakty, które zostają w głowie</p>
+          <h2>Małe prawdy, które przybliżają niebo.</h2>
+        </div>
+        <div class="fact-grid">
+          <article>
+            <h3>Gwiazda Polarna nie jest najjaśniejsza</h3>
+            <p>Słynie z tego, że stoi w miejscu, a nie z tego, że świeci najmocniej. Ludzie mylą to cały czas — dlatego to świetna szkolna pułapka.</p>
+          </article>
+          <article>
+            <h3>Światło leci latami</h3>
+            <p>Patrząc na niektóre gwiazdy, widzisz światło, które wyruszyło, zanim się urodziliśmy. Nocne niebo to wehikuł czasu, który widać z balkonu.</p>
+          </article>
+          <article>
+            <h3>Miasta też mają niebo</h3>
+            <p>Z jasnej ulicy możesz nie zobaczyć Drogi Mlecznej, ale Księżyc, planety i kilka jasnych gwiazdozbiorów nadal tam są. Ta strona nie udaje, że potrzebujesz góry.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="why" class="panel why">
+        <div class="section-head">
+          <p class="eyebrow">Dlaczego lubię tę stronę</p>
+          <h2>I dlaczego inni też powinni tu wejść.</h2>
+        </div>
+        <div class="why-grid">
+          <article>
+            <h3>Jest piękna, ale nie hałaśliwa</h3>
+            <p>Wygląd czuje się jak noc: spokojny, ciemny i trochę magiczny. Dzięki temu ludzie zostają, a nie odchodzą od razu.</p>
+          </article>
+          <article>
+            <h3>Uczy czegoś prawdziwego</h3>
+            <p>Po pięciu minutach naprawdę umiesz zrobić coś w realnym świecie. To rzadkość jak na stronę internetową.</p>
+          </article>
+          <article>
+            <h3>Może z niej korzystać każdy</h3>
+            <p>Bez logowania, bez sklepu z teleskopami, bez trudnych słów naukowych. Uczeń, rodzic i nauczyciel zaczynają na tej samej stronie.</p>
+          </article>
+          <article>
+            <h3>Wysyła ludzi na zewnątrz</h3>
+            <p>Większość stron trzyma Cię przy ekranie. Ta kończy się prostym zaproszeniem: spójrz dziś w górę.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Spójrz w górę · zrobione na szkolną prezentację · niebo jest darmowe, każdej nocy</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
